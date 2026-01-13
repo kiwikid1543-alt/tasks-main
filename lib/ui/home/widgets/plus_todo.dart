@@ -37,13 +37,9 @@ class _PlustodoState extends ConsumerState<Plustodo> {
     }
     final homeViewModel = ref.read(homeViewModelProvider.notifier);
     homeViewModel.addToDo(
-      toDo: ToDoEntity(
-        id: '',
-        title: controller.text,
-        description: controller2.text,
-        isFavorite: isFavorite,
-        isDone: false,
-      ),
+      title: controller.text,
+      description: controller2.text,
+      isFavorite: isFavorite,
     );
 
     Navigator.of(context).pop(); // 쌓인 걸 나가준다.
@@ -83,7 +79,6 @@ class _PlustodoState extends ConsumerState<Plustodo> {
                 maxLines: 5, // 개행이 안되게
                 minLines: 1,
                 onSubmitted: (value) {
-                  // 엔터나 완료를 눌러도 출력되게 만들어줌
                   saveTodo();
                 },
                 textInputAction: TextInputAction.newline,

@@ -62,7 +62,14 @@ class ToDoWidgets extends ConsumerWidget {
             child: todo.isFavorite ? Icon(Icons.star) : Icon(Icons.star_border),
           ),
           SizedBox(width: 20),
-          GestureDetector(onTap: () {}, child: Icon(Icons.delete)),
+          GestureDetector(
+            onTap: () {
+              print(todo.id);
+              final vm = ref.read(homeViewModelProvider.notifier);
+              vm.deleteToDo(id: todo.id);
+            },
+            child: Icon(Icons.delete),
+          ),
         ],
       ),
     );
