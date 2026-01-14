@@ -30,7 +30,11 @@ class ToDoWidgets extends ConsumerWidget {
         children: [
           // 아이콘과 텍스트 가로로 배치되어 있음
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              //
+              final vm = ref.read(homeViewModelProvider.notifier);
+              vm.toggleDone(id: todo.id, isDone: !todo.isDone);
+            },
             child: Container(
               //체크하는 동그라미
               width: 24,
@@ -38,8 +42,7 @@ class ToDoWidgets extends ConsumerWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(color: Colors.black, width: 2),
-
-                // color: Colors.black, //삼항연산자
+                color: todo.isDone ? Colors.black : Colors.grey.shade300,
               ),
               child: todo.isDone
                   ? Icon(Icons.check, color: Colors.grey.shade300, size: 20)
@@ -58,7 +61,12 @@ class ToDoWidgets extends ConsumerWidget {
             ),
           ), // 글자 안넘치게 방지하기 위해 expanded 사용
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              // toggleFavorite() 호출
+              final vm = ref.read(homeViewModelProvider.notifier);
+              vm.toggleFavorite(id: todo.id, isFavorite: !todo.isFavorite); //
+              print('즐겨찾기버튼누름');
+            },
             child: todo.isFavorite ? Icon(Icons.star) : Icon(Icons.star_border),
           ),
           SizedBox(width: 20),

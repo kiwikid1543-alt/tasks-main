@@ -51,15 +51,42 @@ class HomeViewModel extends Notifier<List<ToDoEntity>> {
   Future<void> deleteToDo({required String id}) async {
     await toDoRepo.deleteToDo(id);
     // 방금 넣은 아이디값할일은 빼고, 나머지 애들만 넣음
-    // TODO:리팩토링 해보기
-    final List<ToDoEntity> newList = [];
-    for (var s in state) {
-      if (s.id != id) {
-        newList.add(s);
-      }
-    }
-    state = newList;
+    state = state.where((s) => s.id != id).toList();
+
+    // final List<ToDoEntity> newList = [];
+    // for (var s in state) {
+    //   if (s.id != id) {
+    //     newList.add(s);
+    //   }
+    // }
   }
+
+  Future<void> toggleFavorite({
+    required String id,
+    required bool isFavorite,
+  }) async {
+    final todo = state.firstWhere((s) => s.id == id); // ?
+    final ToDoEntity newToDo = ToDoEntity(
+      id: todo.id, // todo
+      title: todo.title, // todo
+      isFavorite: isFavorite,
+    );
+    await toDoRepo.updateToDo(todo: newToDo); // ?
+    state = state.map((e) => e.id == id ? newToDo : e).toList();
+  }
+
+  Future<void> toggleDone({required String id, required bool isDone}) async {
+    final todo = state.firstWhere((e) => e.id == id);
+    final ToDoEntity newToDo = ToDoEntity(
+      id: todo.id,
+      title: todo.title,
+      isDone: isDone,
+    );
+    await toDoRepo.updateToDo(todo: newToDo);
+    state = state.map((e) => e.id == id ? newToDo : e).toList();
+  }
+
+  // Future<void> toggleDone({required String id, required bool isDone}) {}
 }
 
 final homeViewModelProvider = NotifierProvider<HomeViewModel, List<ToDoEntity>>(

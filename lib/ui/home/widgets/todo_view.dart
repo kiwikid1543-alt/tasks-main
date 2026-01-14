@@ -23,7 +23,7 @@ class TodoView extends ConsumerWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return DetailPage(todo: todos[index]);
+                    return DetailPage(id: todos[index].id);
                   },
                 ),
               );

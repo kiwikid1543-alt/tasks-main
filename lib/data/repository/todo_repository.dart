@@ -42,23 +42,14 @@ class TodoRepository {
   }
 
   // 3. 업데이트( 도큐먼트 수정)
-  Future<void> updateToDo({
-    required String id,
-    required String title,
-    required String description,
-    required bool isFavorite,
-    required bool isDone,
-  }) async {
+  Future<void> updateToDo({required ToDoEntity todo}) async {
     try {
-      final fireStore = FirebaseFirestore.instance;
-      final collectionRef = fireStore.collection('todos');
-      final docRef = collectionRef.doc(id);
-      await docRef.update({
-        'title': title,
-        'description': description,
-        'isFavorite': isFavorite,
-        'isDone': isDone,
-      });
+      final docRef = FirebaseFirestore.instance
+          .collection('todos')
+          .doc(todo.id);
+      // final collectionRef = fireStore.collection('todos');
+      // final docRef = collectionRef.doc(id);
+      await docRef.update(todo.toJson());
     } catch (e) {
       print(e);
     }
