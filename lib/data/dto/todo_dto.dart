@@ -1,5 +1,5 @@
-class ToDoEntity {
-  ToDoEntity({
+class TodoDto {
+  TodoDto({
     required this.id,
     required this.title,
     this.description,
@@ -12,7 +12,23 @@ class ToDoEntity {
   bool isFavorite;
   bool isDone;
 
-  ToDoEntity.fromJson(Map<String, dynamic> map)
+  TodoDto copyWith({
+    String? id,
+    String? title,
+    String? description,
+    bool? isFavorite,
+    bool? isDone,
+  }) {
+    return TodoDto(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      description: description ?? this.description,
+      isFavorite: isFavorite ?? this.isFavorite,
+      isDone: isDone ?? this.isDone,
+    );
+  }
+
+  TodoDto.fromJson(Map<String, dynamic> map)
     : this(
         id: map['id'],
         title: map['title'],

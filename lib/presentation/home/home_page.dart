@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tasks/ui/home/widgets/not_todo.dart';
-import 'package:tasks/ui/home/widgets/plus_todo.dart';
-import 'package:tasks/ui/home/widgets/to_do_widgets.dart';
-import 'package:tasks/data/model/todo_entity.dart';
-import 'package:tasks/ui/home/widgets/todo_view.dart';
-import 'package:tasks/ui/home/home_view_model.dart';
+import 'package:tasks/presentation/home/widgets/not_todo.dart';
+import 'package:tasks/presentation/home/widgets/plus_todo.dart';
+import 'package:tasks/presentation/home/widgets/todo_view.dart';
+import 'package:tasks/presentation/home/home_view_model.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -16,27 +14,6 @@ class HomePage extends ConsumerStatefulWidget {
 
 class _HomePageState extends ConsumerState<HomePage> {
   final String appName = '동준`s Tasks';
-  // List<TodoEntity> todoList = [];
-
-  // void addTodo(TodoEntity todo) {
-  //   setState(() {
-  //     todoList.add(todo);
-  //   });
-  // }
-
-  // void toggleDone(int index) {
-  //   //할일 완료
-  //   setState(() {
-  //     todoList[index].isDone = !todoList[index].isDone;
-  //   });
-  // }
-
-  // void toggleFavorite(int index) {
-  //   //즐겨찾기
-  //   setState(() {
-  //     todoList[index].isFavorite = !todoList[index].isFavorite;
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {

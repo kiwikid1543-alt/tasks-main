@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tasks/data/model/todo_entity.dart';
-import 'package:tasks/data/repository/todo_repository.dart';
-import 'package:tasks/ui/home/home_view_model.dart';
+import 'package:tasks/presentation/home/home_view_model.dart';
 
 class ToDoWidgets extends ConsumerWidget {
   ToDoWidgets({super.key, required this.id}); // const 빼야하나?

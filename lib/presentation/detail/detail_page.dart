@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tasks/data/model/todo_entity.dart';
-import 'package:tasks/ui/home/home_view_model.dart';
+import 'package:tasks/presentation/home/home_view_model.dart';
 
 class DetailPage extends ConsumerStatefulWidget {
   const DetailPage({super.key, required this.id});
