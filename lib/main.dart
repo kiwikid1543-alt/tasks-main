@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tasks/core/router.dart';
 import 'package:tasks/firebase_options.dart';
 import 'package:tasks/presentation/home/home_page.dart';
 
@@ -16,6 +17,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomePage());
+    return MaterialApp.router(routerConfig: router);
   }
 }
