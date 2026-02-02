@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tasks/core/router.dart';
 import 'package:tasks/firebase_options.dart';
-import 'package:tasks/presentation/home/home_page.dart';
 
 void main() async {
   // 파이어베이스 초기화
