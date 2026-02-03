@@ -18,6 +18,16 @@ class _DetailPageState extends ConsumerState<DetailPage> {
     return Scaffold(
       backgroundColor: Colors.grey.shade400,
       appBar: AppBar(
+        title: Hero(
+          tag: todo.id,
+          child: Material(
+            color: Colors.transparent,
+            child: Text(
+              todo.title ?? '제목없음',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
         leading: IconButton(
           onPressed: () {
             Navigator.of(context).pop();

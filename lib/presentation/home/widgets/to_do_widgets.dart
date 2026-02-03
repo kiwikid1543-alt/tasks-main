@@ -49,12 +49,18 @@ class ToDoWidgets extends ConsumerWidget {
           ),
           SizedBox(width: 20),
           Expanded(
-            child: Text(
-              todo.title ?? '',
-              style: TextStyle(
-                decoration: todo.isDone
-                    ? TextDecoration.lineThrough
-                    : TextDecoration.none,
+            child: Hero(
+              tag: todo.id,
+              child: Material(
+                color: Colors.transparent,
+                child: Text(
+                  todo.title ?? '',
+                  style: TextStyle(
+                    decoration: todo.isDone
+                        ? TextDecoration.lineThrough
+                        : TextDecoration.none,
+                  ),
+                ),
               ),
             ),
           ), // 글자 안넘치게 방지하기 위해 expanded 사용
