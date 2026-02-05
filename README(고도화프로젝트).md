@@ -10,38 +10,18 @@
 
 ### 📱 고도화된 UI/UX
 - **Hero Animation**: 리스트에서 상세 화면으로 전환 시 타이틀이 자연스럽게 이동하는 애니메이션 적용.
-- **Responsive UI**: 세로/가로 모드 전환 시 레이아웃이 깨지지 않도록 `LayoutBuilder` 및 `MediaQuery` 활용.
-- **Advanced List**: `Pull to Refresh` 및 `Infinite Scrolling`(15개 단위 페이징) 구현.
 
 ### 🛠️ 성능 및 안정성
 - **Debouncing**: 터치 이벤트 중복 발생 방지를 위한 디바운싱 로직 적용.
-- **Unit Test**: `fake_cloud_firestore`를 활용한 Repository 단위 테스트 수행.
 - **GoRouter**: 선언적 라우팅을 통한 체계적인 페이지 관리.
 
 ---
 
 ## 🛠 기술 스택
 - **Language**: Dart / **Framework**: Flutter
-- **State Management**: (사용하신 Provider/Riverpod 등 입력)
+- **State Management**: Riverpod
 - **Database**: Firebase Firestore
 - **Navigation**: Go_router
-
----
-
-## 📸 실행 화면 (예시)
-| 메인 리스트 (Infinite Scroll) | Hero 애니메이션 | 반응형 UI (가로모드) |
-| :---: | :---: | :---: |
-| ![이미지_경로]() | ![이미지_경로]() | ![이미지_경로]() |
-
----
-
-## 🔥 트러블 슈팅
-### 1. Firestore 페이징 처리 이슈
-- **문제**: 무한 스크롤 구현 시 데이터가 중복으로 불러와지거나 순서가 섞이는 현상 발생.
-- **원인**: 쿼리 시 `startAfterDocument` 기준이 명확하지 않았음.
-- **해결**: `createdAt` 필드를 추가하고 최신순 정렬 후, 마지막 문서(DocumentSnapshot)를 저장하여 다음 쿼리의 기점으로 사용함.
-
-### 2. (본인의 추가 트러블 슈팅 사례를 적어주세요)
 
 ---
 

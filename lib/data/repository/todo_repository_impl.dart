@@ -40,6 +40,7 @@ extension on TodoDto {
       description: description,
       isFavorite: isFavorite,
       isDone: isDone,
+      createdAt: createdAt,
     );
   }
 }
@@ -52,6 +53,7 @@ extension on TodoEntity {
       description: description,
       isFavorite: isFavorite,
       isDone: isDone,
+      createdAt: createdAt,
     );
   }
 }

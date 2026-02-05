@@ -16,7 +16,7 @@ class TodoView extends ConsumerWidget {
         itemCount: todos.length,
         itemBuilder: (context, index) {
           // 디바운싱 구현: 탭을 빠르게 두번연속 누르면 두번째 탭이 실행되지 않게 해줌
-          // 쓰로틀링이 나을수도ㅇ
+          // 쓰로틀링이 나을수도있음
           return GestureDetector(
             onTap: () async {
               context.go('/detail/${todos[index].id}');

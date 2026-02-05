@@ -5,12 +5,14 @@ class TodoEntity {
     this.description,
     this.isFavorite = false,
     this.isDone = false,
+    this.createdAt,
   });
   final String id;
   final String? title;
   final String? description;
   final bool isFavorite;
   final bool isDone;
+  final DateTime? createdAt;
 
   TodoEntity copyWith({
     String? id,
@@ -18,6 +20,7 @@ class TodoEntity {
     String? description,
     bool? isFavorite,
     bool? isDone,
+    DateTime? createdAt,
   }) {
     return TodoEntity(
       id: id ?? this.id,
@@ -25,6 +28,7 @@ class TodoEntity {
       description: description ?? this.description,
       isFavorite: isFavorite ?? this.isFavorite,
       isDone: isDone ?? this.isDone,
+      createdAt: createdAt ?? this.createdAt,
     );
   }
 }

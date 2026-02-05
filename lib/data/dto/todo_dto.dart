@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class TodoDto {
   TodoDto({
     required this.id,
@@ -5,12 +7,14 @@ class TodoDto {
     this.description,
     this.isFavorite = false,
     this.isDone = false,
+    this.createdAt,
   });
   final String id;
   final String? title;
   final String? description;
   bool isFavorite;
   bool isDone;
+  DateTime? createdAt;
 
   TodoDto copyWith({
     String? id,
@@ -18,6 +22,7 @@ class TodoDto {
     String? description,
     bool? isFavorite,
     bool? isDone,
+    DateTime? createdAt,
   }) {
     return TodoDto(
       id: id ?? this.id,
@@ -25,6 +30,7 @@ class TodoDto {
       description: description ?? this.description,
       isFavorite: isFavorite ?? this.isFavorite,
       isDone: isDone ?? this.isDone,
+      createdAt: createdAt ?? this.createdAt,
     );
   }
 
@@ -35,6 +41,9 @@ class TodoDto {
         description: map['description'],
         isFavorite: map['isFavorite'] as bool? ?? false,
         isDone: map['isDone'] as bool? ?? false,
+        createdAt: map['createdAt'] != null
+            ? (map['createdAt'] as Timestamp).toDate()
+            : null,
       );
 
   Map<String, dynamic> toJson() {
@@ -44,6 +53,7 @@ class TodoDto {
       'description': description,
       'isFavorite': isFavorite,
       'isDone': isDone,
+      'createdAt': createdAt != null ? Timestamp.fromDate(createdAt!) : null,
     };
   }
 }

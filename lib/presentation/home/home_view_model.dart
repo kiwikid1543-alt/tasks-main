@@ -36,6 +36,7 @@ class HomeViewModel extends Notifier<List<TodoEntity>> {
         title: title,
         description: description,
         isFavorite: isFavorite,
+        createdAt: DateTime.now(),
       );
       // 2. usecase를 통해 저장 요청
       final useCase = ref.read(todoUseCaseProvider);
